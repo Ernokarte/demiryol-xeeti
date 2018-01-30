@@ -76,7 +76,7 @@
             this.label7.BackColor = System.Drawing.Color.Fuchsia;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(260, 137);
+            this.label7.Location = new System.Drawing.Point(136, 113);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(209, 22);
             this.label7.TabIndex = 3;
@@ -89,6 +89,7 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
             this.monthCalendar1.Visible = false;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // monthCalendar2
@@ -99,7 +100,6 @@
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 6;
             this.monthCalendar2.Visible = false;
-            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateChanged);
             this.monthCalendar2.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateSelected);
             // 
             // pictureBox7
@@ -183,6 +183,7 @@
             this.button1.TabIndex = 20;
             this.button1.Text = "BİLET AXTAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox5
             // 
@@ -236,6 +237,7 @@
             this.textBox2.Location = new System.Drawing.Point(345, 217);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(151, 25);
             this.textBox2.TabIndex = 15;
             this.textBox2.TabStop = false;
@@ -250,6 +252,7 @@
             this.textBox1.Location = new System.Drawing.Point(61, 217);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(154, 25);
             this.textBox1.TabIndex = 14;
             this.textBox1.TabStop = false;
@@ -376,6 +379,8 @@
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(124, 23);
             this.comboBox5.TabIndex = 4;
+            this.comboBox5.TabStop = false;
+            this.comboBox5.Click += new System.EventHandler(this.comboBox5_Click);
             // 
             // comboBox4
             // 
@@ -385,6 +390,8 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(127, 23);
             this.comboBox4.TabIndex = 3;
+            this.comboBox4.TabStop = false;
+            this.comboBox4.Click += new System.EventHandler(this.comboBox4_Click);
             // 
             // comboBox3
             // 
@@ -394,6 +401,9 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(122, 23);
             this.comboBox3.TabIndex = 2;
+            this.comboBox3.TabStop = false;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboBox3.Click += new System.EventHandler(this.comboBox3_Click);
             // 
             // comboBox2
             // 
@@ -424,9 +434,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp17.Properties.Resources.gleise_1555348__340;
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 93);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1080, 741);
+            this.pictureBox1.Size = new System.Drawing.Size(1071, 715);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -435,7 +445,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 806);
+            this.ClientSize = new System.Drawing.Size(1070, 806);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.monthCalendar2);
             this.Controls.Add(this.monthCalendar1);

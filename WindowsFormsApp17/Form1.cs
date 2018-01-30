@@ -39,17 +39,8 @@ namespace WindowsFormsApp17
             comboBox3.Items.Add("2");
             comboBox3.Items.Add("3");
             comboBox3.Items.Add("4");
-            comboBox4.Items.Add("0");
-            comboBox4.Items.Add("1");
-            comboBox4.Items.Add("2");
-            comboBox4.Items.Add("3");
-            comboBox4.Items.Add("4");
-            comboBox5.Items.Add("0");
-            comboBox5.Items.Add("1");
-            comboBox5.Items.Add("2");
-            comboBox5.Items.Add("3");
-            comboBox5.Items.Add("4");
             
+
 
         }
              
@@ -68,6 +59,7 @@ namespace WindowsFormsApp17
         {
             monthCalendar1.Visible = false;
             monthCalendar2.Visible = false;
+           
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
@@ -130,12 +122,65 @@ namespace WindowsFormsApp17
            pictureBox5.Visible = false;
             monthCalendar2.Visible = false;
         }
-
-        private void monthCalendar2_DateChanged(object sender, DateRangeEventArgs e)
+        
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            monthCalendar2.MinDate = monthCalendar1.SelectionStart.AddDays(1);
+            monthCalendar2.MinDate = monthCalendar1.SelectionEnd.AddDays(1);
             monthCalendar2.MaxDate = monthCalendar1.SelectionStart.AddMonths(1);
-            MessageBox.Show("Test");
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox5.Items.Clear();
+            comboBox4.Items.Clear();
+            for (int i = 0; i <= comboBox3.SelectedIndex; i++)
+            {
+                comboBox5.Items.Add(i);
+            }
+
+            if (comboBox3.SelectedIndex == 4)
+            {
+                comboBox4.Enabled = false;
+                comboBox4.ResetText();
+            }
+            for (int i = 0; i <=4-comboBox3.SelectedIndex; i++)
+            {
+                comboBox4.Enabled = true;
+                comboBox4.Items.Add(i);
+            }
+        }
+
+        private void comboBox3_Click(object sender, EventArgs e)
+        {
+            comboBox3.DroppedDown = true;
+        }
+
+        private void comboBox4_Click(object sender, EventArgs e)
+        {
+            comboBox4.DroppedDown = true;
+        }
+
+        private void comboBox5_Click(object sender, EventArgs e)
+        {
+            comboBox5.DroppedDown = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+            
+            Controls.Add(UserControl1.Instance);
+            UserControl1.Instance.Dock = DockStyle.Fill;
+            UserControl1.Instance.BringToFront();
+        }
+    }
+    class Country
+    {
+        public string NameOfCountry { get; set; }
+
+    }
+    class ListOfCountry
+    {
+        public List<Country> list = new List<Country>();
     }
 }
