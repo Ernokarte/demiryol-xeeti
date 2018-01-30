@@ -135,7 +135,7 @@ namespace WindowsFormsApp17
         {
             monthCalendar2.MinDate = monthCalendar1.SelectionStart.AddDays(1);
             monthCalendar2.MaxDate = monthCalendar1.SelectionStart.AddMonths(1);
-           
+            MessageBox.Show("Test");
         }
     }
 }
