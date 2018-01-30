@@ -85,7 +85,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(130, 616);
-            this.monthCalendar1.MinDate = new System.DateTime(2018, 1, 29, 0, 0, 0, 0);
+            this.monthCalendar1.MinDate = new System.DateTime(2018, 1, 30, 0, 0, 0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
             this.monthCalendar1.Visible = false;
@@ -94,9 +94,12 @@
             // monthCalendar2
             // 
             this.monthCalendar2.Location = new System.Drawing.Point(462, 616);
+            this.monthCalendar2.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
+            this.monthCalendar2.MinDate = new System.DateTime(2018, 1, 30, 0, 0, 0, 0);
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 6;
             this.monthCalendar2.Visible = false;
+            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateChanged);
             this.monthCalendar2.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateSelected);
             // 
             // pictureBox7
@@ -190,6 +193,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 19;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Visible = false;
             // 
             // pictureBox4
             // 
@@ -228,7 +232,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.textBox2.Location = new System.Drawing.Point(345, 217);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -236,12 +240,13 @@
             this.textBox2.TabIndex = 15;
             this.textBox2.TabStop = false;
             this.textBox2.Text = "GÜN/AY/İL";
+            this.textBox2.Visible = false;
             this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.textBox1.Location = new System.Drawing.Point(61, 217);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -249,7 +254,7 @@
             this.textBox1.TabIndex = 14;
             this.textBox1.TabStop = false;
             this.textBox1.Text = "GÜN/AY/İL";
-            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // groupBox1
             // 
@@ -274,6 +279,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "GEDİŞ-QAYIDIŞ";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
             // 
             // radioButton1
             // 
@@ -287,6 +293,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "BİR İSTİQAMƏT";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Click += new System.EventHandler(this.radioButton1_Click);
             // 
             // label6
             // 
@@ -311,6 +318,7 @@
             this.label5.Size = new System.Drawing.Size(132, 24);
             this.label5.TabIndex = 11;
             this.label5.Text = "Qayidis tarixi";
+            this.label5.Visible = false;
             // 
             // label4
             // 
@@ -390,7 +398,7 @@
             // comboBox2
             // 
             this.comboBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBox2.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(344, 87);
             this.comboBox2.Name = "comboBox2";
@@ -398,11 +406,12 @@
             this.comboBox2.TabIndex = 1;
             this.comboBox2.TabStop = false;
             this.comboBox2.Text = "Stansiya seçin";
+            this.comboBox2.Click += new System.EventHandler(this.comboBox2_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(61, 87);
             this.comboBox1.Name = "comboBox1";

@@ -15,6 +15,7 @@ namespace WindowsFormsApp17
         public Form1()
         {
             InitializeComponent();
+                       
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -48,19 +49,17 @@ namespace WindowsFormsApp17
             comboBox5.Items.Add("2");
             comboBox5.Items.Add("3");
             comboBox5.Items.Add("4");
+            
 
         }
-
-        
-
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            monthCalendar1.Visible = true;
-            monthCalendar2.Visible = false;           
-        }
-
+             
         private void textBox2_MouseClick(object sender, MouseEventArgs e)
         {
+            textBox2.ForeColor = Color.Black;
+            if (textBox2.Text == "GÜN/AY/İL")
+            {
+                textBox2.Clear();
+            }
             monthCalendar2.Visible = true;
             monthCalendar1.Visible = false;
         }
@@ -78,19 +77,65 @@ namespace WindowsFormsApp17
         }
 
         private void monthCalendar2_DateSelected(object sender, DateRangeEventArgs e)
-        {
+        {      
+            
             textBox2.Text = monthCalendar2.SelectionStart.ToShortDateString();
             monthCalendar2.Visible = false;
         }
 
         private void comboBox1_Click(object sender, EventArgs e)
         {
-            comboBox1.ForeColor = Color.Red;
+            comboBox1.ForeColor = Color.Black;
             if (comboBox1.Text == "Stansiya seçin")
             {
                 comboBox1.ResetText();
-               
+                comboBox1.DroppedDown = true;
             }
+        }
+
+        private void comboBox2_Click(object sender, EventArgs e)
+        {
+            comboBox2.ForeColor = Color.Black;
+            if (comboBox2.Text == "Stansiya seçin")
+            {
+                comboBox2.ResetText();
+                comboBox2.DroppedDown = true;
+            }
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.Black;
+            if (textBox1.Text == "GÜN/AY/İL")
+            {
+                textBox1.Clear();
+            }
+            monthCalendar1.Visible = true;
+            monthCalendar2.Visible = false;
+        }
+
+        private void radioButton2_Click(object sender, EventArgs e)
+        {
+                                          
+           textBox2.Visible = true;
+           label5.Visible = true;
+           pictureBox5.Visible = true;
+                            
+        }
+
+        private void radioButton1_Click(object sender, EventArgs e)
+        {
+           textBox2.Visible = false;
+           label5.Visible = false;
+           pictureBox5.Visible = false;
+            monthCalendar2.Visible = false;
+        }
+
+        private void monthCalendar2_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            monthCalendar2.MinDate = monthCalendar1.SelectionStart.AddDays(1);
+            monthCalendar2.MaxDate = monthCalendar1.SelectionStart.AddMonths(1);
+           
         }
     }
 }
