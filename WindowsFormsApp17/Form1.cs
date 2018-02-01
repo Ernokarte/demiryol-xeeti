@@ -12,28 +12,28 @@ namespace WindowsFormsApp17
 {
     public partial class Form1 : Form
     {
+        public static string from;
+        public static string from1;
+        public static string to;
+
+
         public Form1()
         {
             InitializeComponent();
-                       
+            comboBox1.Items.Clear();
+            var Siyahi = list1.list;
+            foreach (var item in Siyahi)
+                comboBox1.Items.Add(item.NameOfCountry);
+            comboBox2.Items.Clear();
+            var Siyahi2 = list1.list;
+            foreach (var item in Siyahi2)
+                comboBox2.Items.Add(item.NameOfCountry);
         }
+        ListOfCountry list1 = new ListOfCountry();
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("Bakı");
-            comboBox1.Items.Add("Sumqayıt");
-            comboBox1.Items.Add("Gəncə");
-            comboBox1.Items.Add("Mingəçevir");
-            comboBox1.Items.Add("Ağdaş");
-            comboBox1.Items.Add("Zaqatala");
-            comboBox1.Items.Add("Lənkəran");
-            comboBox2.Items.Add("Bakı");
-            comboBox2.Items.Add("Sumqayıt");
-            comboBox2.Items.Add("Gəncə");
-            comboBox2.Items.Add("Mingəçevir");
-            comboBox2.Items.Add("Ağdaş");
-            comboBox2.Items.Add("Zaqatala");
-            comboBox2.Items.Add("Lənkəran");
+        
             comboBox3.Items.Add("0");
             comboBox3.Items.Add("1");
             comboBox3.Items.Add("2");
@@ -64,25 +64,41 @@ namespace WindowsFormsApp17
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
-            textBox1.Text = monthCalendar1.SelectionStart.ToShortDateString();
-            monthCalendar1.Visible = false;
+            
+            
+                var a = Convert.ToDateTime(monthCalendar1.SelectionStart.ToShortDateString()).ToString("MMMM dd, yyyy");
+                textBox1.Text = a;
+                monthCalendar1.Visible = false;
+            
+           
+            
         }
 
         private void monthCalendar2_DateSelected(object sender, DateRangeEventArgs e)
-        {      
-            
-            textBox2.Text = monthCalendar2.SelectionStart.ToShortDateString();
-            monthCalendar2.Visible = false;
+        {
+            if (textBox1.Text== Convert.ToDateTime(monthCalendar1.SelectionStart.ToShortDateString()).ToString("MMMM dd, yyyy"))
+            {
+                var b = Convert.ToDateTime(monthCalendar2.SelectionStart.ToShortDateString()).ToString("MMMM dd, yyyy");
+                textBox2.Text = b;
+                monthCalendar2.Visible = false;
+            }
+            else
+            {
+                
+                MessageBox.Show("Gediş tarixi seçilməyib!!!");
+            }
         }
 
         private void comboBox1_Click(object sender, EventArgs e)
         {
+            
             comboBox1.ForeColor = Color.Black;
             if (comboBox1.Text == "Stansiya seçin")
             {
                 comboBox1.ResetText();
-                comboBox1.DroppedDown = true;
+                
             }
+            comboBox1.DroppedDown = true;
         }
 
         private void comboBox2_Click(object sender, EventArgs e)
@@ -91,8 +107,9 @@ namespace WindowsFormsApp17
             if (comboBox2.Text == "Stansiya seçin")
             {
                 comboBox2.ResetText();
-                comboBox2.DroppedDown = true;
+                
             }
+            comboBox2.DroppedDown = true;
         }
 
         private void textBox1_Click(object sender, EventArgs e)
@@ -125,7 +142,7 @@ namespace WindowsFormsApp17
         
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            monthCalendar2.MinDate = monthCalendar1.SelectionEnd.AddDays(1);
+            monthCalendar2.MinDate = monthCalendar1.SelectionStart.AddDays(1);
             monthCalendar2.MaxDate = monthCalendar1.SelectionStart.AddMonths(1);
         }
 
@@ -167,20 +184,67 @@ namespace WindowsFormsApp17
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            if (comboBox1.SelectedIndex < 0 || comboBox2.SelectedIndex < 0 || comboBox3.SelectedIndex <= 0||textBox1.Text== "AY/GÜN/İL"||
+                comboBox1.SelectedItem==comboBox2.SelectedItem)
+            {
+                label1.ForeColor =Color.Red;
+                label2.ForeColor = Color.Red;
+                label3.ForeColor = Color.Red;
+                label4.ForeColor = Color.Red;
+            }
+            else
+            {
+                Controls.Add(UserControl1.Instance);
+                UserControl1.Instance.Dock = DockStyle.Fill;
+                UserControl1.Instance.BringToFront();
+            }
             
-            Controls.Add(UserControl1.Instance);
-            UserControl1.Instance.Dock = DockStyle.Fill;
-            UserControl1.Instance.BringToFront();
+                       
+        }
+
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            monthCalendar1.Visible = true;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            monthCalendar2.Visible = true;
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            from = comboBox1.SelectedItem.ToString();
+        }
+
+       
+
+        private void comboBox2_Leave(object sender, EventArgs e)
+        {
+            from1 = comboBox2.SelectedItem.ToString();
         }
     }
     class Country
     {
         public string NameOfCountry { get; set; }
+        public Country(string NameOf)
+        {
+            NameOfCountry = NameOf;
+        }
 
     }
     class ListOfCountry
     {
-        public List<Country> list = new List<Country>();
+        public List<Country> list = new List<Country>()
+        {
+            new Country("Bakı"),
+             new Country("Sumqayıt"),
+             new Country("Gəncə"),
+             new Country("Mingəçevir"),
+             new Country("Ağdaş"),
+             new Country("Zaqatala"),
+             new Country("Lənkəran")
+        };
     }
 }

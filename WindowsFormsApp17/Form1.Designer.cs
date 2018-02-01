@@ -73,10 +73,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Fuchsia;
+            this.label7.BackColor = System.Drawing.Color.MediumBlue;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(136, 113);
+            this.label7.Location = new System.Drawing.Point(241, 136);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(209, 22);
             this.label7.TabIndex = 3;
@@ -85,7 +85,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(130, 616);
-            this.monthCalendar1.MinDate = new System.DateTime(2018, 1, 30, 0, 0, 0, 0);
+            this.monthCalendar1.MinDate = new System.DateTime(2018, 2, 1, 19, 14, 43, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
             this.monthCalendar1.Visible = false;
@@ -115,7 +115,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Fuchsia;
+            this.pictureBox3.BackColor = System.Drawing.Color.MediumBlue;
             this.pictureBox3.Location = new System.Drawing.Point(479, 175);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(210, 10);
@@ -124,7 +124,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Fuchsia;
+            this.pictureBox2.BackColor = System.Drawing.Color.MediumBlue;
             this.pictureBox2.Location = new System.Drawing.Point(130, 104);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(350, 81);
@@ -175,7 +175,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Fuchsia;
+            this.button1.BackColor = System.Drawing.Color.MediumBlue;
             this.button1.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(384, 375);
             this.button1.Name = "button1";
@@ -195,6 +195,7 @@
             this.pictureBox5.TabIndex = 19;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Visible = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox4
             // 
@@ -205,6 +206,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 18;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // label9
             // 
@@ -241,7 +243,7 @@
             this.textBox2.Size = new System.Drawing.Size(151, 25);
             this.textBox2.TabIndex = 15;
             this.textBox2.TabStop = false;
-            this.textBox2.Text = "GÜN/AY/İL";
+            this.textBox2.Text = "AY/GÜN/İL";
             this.textBox2.Visible = false;
             this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
             // 
@@ -256,7 +258,7 @@
             this.textBox1.Size = new System.Drawing.Size(154, 25);
             this.textBox1.TabIndex = 14;
             this.textBox1.TabStop = false;
-            this.textBox1.Text = "GÜN/AY/İL";
+            this.textBox1.Text = "AY/GÜN/İL";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // groupBox1
@@ -279,7 +281,6 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(122, 20);
             this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "GEDİŞ-QAYIDIŞ";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
@@ -287,6 +288,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton1.ForeColor = System.Drawing.Color.Fuchsia;
             this.radioButton1.Location = new System.Drawing.Point(7, 13);
@@ -407,6 +409,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox2.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.comboBox2.FormattingEnabled = true;
@@ -415,11 +418,12 @@
             this.comboBox2.Size = new System.Drawing.Size(151, 26);
             this.comboBox2.TabIndex = 1;
             this.comboBox2.TabStop = false;
-            this.comboBox2.Text = "Stansiya seçin";
             this.comboBox2.Click += new System.EventHandler(this.comboBox2_Click);
+            this.comboBox2.Leave += new System.EventHandler(this.comboBox2_Leave);
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.comboBox1.FormattingEnabled = true;
@@ -428,8 +432,8 @@
             this.comboBox1.Size = new System.Drawing.Size(154, 26);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.TabStop = false;
-            this.comboBox1.Text = "Stansiya seçin";
             this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
+            this.comboBox1.Leave += new System.EventHandler(this.comboBox1_Leave);
             // 
             // pictureBox1
             // 

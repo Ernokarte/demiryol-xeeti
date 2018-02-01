@@ -12,9 +12,13 @@ namespace WindowsFormsApp17
 {
     public partial class UserControl1 : UserControl
     {
+       
         public UserControl1()
         {
             InitializeComponent();
+            
+            label10.Text = Form1.from;
+            label12.Text = Form1.from1;
         }
         
         private static UserControl1 instance;
@@ -33,6 +37,13 @@ namespace WindowsFormsApp17
                 }
             }
         
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+           
+           
+
         }
     }
 }
