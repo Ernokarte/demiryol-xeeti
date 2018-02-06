@@ -14,6 +14,7 @@ namespace WindowsFormsApp17
     {
         public static string from;
         public static string from1;
+        public static string from2;
         public static string to;
 
 
@@ -224,6 +225,16 @@ namespace WindowsFormsApp17
         {
             from1 = comboBox2.SelectedItem.ToString();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            from2 = monthCalendar1.SelectionStart.ToShortDateString();
+        }
     }
     class Country
     {
@@ -246,5 +257,22 @@ namespace WindowsFormsApp17
              new Country("Zaqatala"),
              new Country("Lənkəran")
         };
+    }
+    class Sernisinler
+    {
+        public string CountOfPas { get; set; }
+
+    }
+    class Trains
+    {
+        public string VaqonunTipi { get; set; }
+        public string VaqonunSayi { get; set; }
+        public string YerlerinSayi { get; set; }
+
+    }
+    class Tarifler
+    {
+        public decimal BoyuklerUcun { get; set; }
+        public decimal UsaqlarUcun { get; set; }
     }
 }

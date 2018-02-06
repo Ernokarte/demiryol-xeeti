@@ -85,7 +85,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(130, 616);
-            this.monthCalendar1.MinDate = new System.DateTime(2018, 2, 1, 19, 14, 43, 0);
+            this.monthCalendar1.MinDate = new System.DateTime(2018, 2, 6, 0, 0, 0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
             this.monthCalendar1.Visible = false;
@@ -94,7 +94,7 @@
             // 
             // monthCalendar2
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(462, 616);
+            this.monthCalendar2.Location = new System.Drawing.Point(525, 616);
             this.monthCalendar2.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.monthCalendar2.MinDate = new System.DateTime(2018, 1, 30, 0, 0, 0, 0);
             this.monthCalendar2.Name = "monthCalendar2";
@@ -161,6 +161,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(559, 433);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
             // pictureBox6
@@ -260,6 +261,7 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "AY/GÜN/İL";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // groupBox1
             // 

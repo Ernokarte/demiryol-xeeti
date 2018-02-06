@@ -19,6 +19,7 @@ namespace WindowsFormsApp17
             
             label10.Text = Form1.from;
             label12.Text = Form1.from1;
+            label13.Text = Form1.from2;
         }
         
         private static UserControl1 instance;
